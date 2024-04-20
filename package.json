@@ -1,10 +1,11 @@
 {
-  "name": "joplin-plugin-markdown-table-sortable",
-  "version": "1.2.2",
+  "name": "joplin-plugin-sortable-tables",
+  "version": "1.0.0",
   "scripts": {
-    "dist": "webpack --joplin-plugin-config buildMain && webpack --joplin-plugin-config buildExtraScripts && webpack --joplin-plugin-config createArchive",
-    "prepare": "npm run dist",
-    "update": "npm install -g generator-joplin && yo joplin --update"
+    "dist": "webpack --env joplin-plugin-config=buildMain && webpack --env joplin-plugin-config=buildExtraScripts && webpack --env joplin-plugin-config=createArchive",
+    "prepare": "pnpm run dist",
+    "update": "pnpm install -g generator-joplin && yo joplin --node-package-manager pnpm --update --force",
+    "updateVersion": "webpack --env joplin-plugin-config=updateVersion"
   },
   "license": "MIT",
   "keywords": [
@@ -14,23 +15,27 @@
     "sorting",
     "sortable"
   ],
-  "homepage": "https://github.com/hieuthi/joplin-plugin-markdown-table-sortable",
+  "homepage": "https://github.com/parkersprouse/joplin-plugin-sortable-tables",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hieuthi/joplin-plugin-markdown-table-sortable.git"
+    "url": "https://github.com/parkersprouse/joplin-plugin-sortable-tables"
   },
   "devDependencies": {
-    "@types/node": "^14.0.14",
-    "chalk": "^4.1.0",
-    "copy-webpack-plugin": "^6.1.0",
-    "fs-extra": "^9.0.1",
-    "glob": "^7.1.6",
+    "@joplin/lib": "~2.14.1",
+    "@types/node": "^20.12.7",
+    "chalk": "^5.3.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.12",
     "on-build-webpack": "^0.1.0",
-    "tar": "^6.0.5",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "yargs": "^16.2.0"
-  }
+    "tar": "^7.0.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "yargs": "^17.7.2"
+  },
+  "files": [
+    "publish"
+  ]
 }

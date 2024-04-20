@@ -1,17 +1,71 @@
-table {position: relative}
-table th { cursor: pointer }
-table tfoot {
-  position: absolute;
-  top: -24px;
-  text-align: right;
-  width: 100%;
-  visibility: hidden;
+table.sortable {
+  position: relative;
 }
-table:hover tfoot {
-  visibility: visible;
-}
-a.sortable-apply {padding:4px}
 
+table.sortable th {
+  cursor: pointer;
+}
+
+table.sortable tfoot {
+  height: 24px;
+  opacity: 0;
+  position: absolute;
+  text-align: right;
+  top: -24px;
+  width: 100%;
+}
+
+table.sortable:hover tfoot,
+table.sortable tfoot:hover {
+  opacity: 1;
+}
+
+table.sortable tfoot .sortable-action-container {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+table.sortable tfoot .sortable-action-container > a,
+table.sortable tfoot .sortable-action-container > a:hover {
+  color: currentColor !important;
+  text-decoration: none !important;
+}
+
+table.sortable tfoot .sortable-action-container > a {
+  opacity: 0.7;
+}
+
+table.sortable tfoot .sortable-action-container > a:hover {
+  opacity: 1;
+}
+
+table.sortable tfoot .sortable-action-container > a,
+table.sortable tfoot .sortable-action-container > a > span,
+table.sortable tfoot .sortable-action-container > a > span > svg {
+  display: block !important;
+  height: 18px !important;
+  width: 18px !important;
+}
+
+table.sortable thead th > div {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  justify-content: flex-start;
+}
+
+table.sortable thead th > div > span[id*='_sorttable_sortfwdind'],
+table.sortable thead th > div > span[id*='_sorttable_sortrevind'],
+table.sortable thead th > div > span[id*='_sorttable_sortfwdind'] > svg,
+table.sortable thead th > div > span[id*='_sorttable_sortrevind'] > svg {
+  height: 18px !important;
+  width: 18px !important;
+}
+
+/*
 #rendered-md table:first-child {
   margin-top: 24px !important;
 }
+*/
